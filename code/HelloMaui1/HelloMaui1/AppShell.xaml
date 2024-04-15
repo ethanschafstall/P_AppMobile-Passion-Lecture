@@ -15,12 +15,23 @@
                 ContentTemplate="{DataTemplate local:MainPage}"
                 Route="MainPage"/>
         </Tab>
-        <Tab 
+        <Tab
+            
         Title="Library"
         Icon="library_icon.png">
+            
             <ShellContent
-                ContentTemplate="{DataTemplate local:LibraryPage}"
-                Route="LibraryPage"/>
+                Title="Your Books"
+                ContentTemplate="{DataTemplate local:YourBooks}"
+                Route="Your Books" />
+            <ShellContent
+                Title="Collections"
+                ContentTemplate="{DataTemplate local:Collections}"
+                Route="Collections" />
+            <ShellContent
+                Title="Tags"
+                ContentTemplate="{DataTemplate local:Tags}"
+                Route="Tags" />
         </Tab>
         <Tab
         Title="Account"

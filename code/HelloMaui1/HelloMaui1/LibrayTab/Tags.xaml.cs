@@ -2,9 +2,9 @@ using HttpClientConnection;
 
 namespace HelloMaui1;
 
-public partial class LibraryPage : ContentPage
+public partial class Tags : ContentPage
 {
-	public LibraryPage()
+	public Tags()
 	{
 		InitializeComponent();
 	}

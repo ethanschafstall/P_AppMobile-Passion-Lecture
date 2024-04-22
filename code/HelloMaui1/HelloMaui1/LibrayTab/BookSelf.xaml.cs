@@ -2,9 +2,9 @@ using HttpClientConnection;
 
 namespace HelloMaui1;
 
-public partial class YourBooks : ContentPage
+public partial class BookSelf : ContentPage
 {
-	public YourBooks()
+	public BookSelf()
 	{
 		InitializeComponent();
 	}
@@ -14,7 +14,10 @@ public partial class YourBooks : ContentPage
     }
     private void SearchBar_SearchButtonPressed(object sender, EventArgs e)
     {
-        CallAPI.GetSunrise();
+
     }
-    private void OnImageButtonClicked(object sender, EventArgs e) { }
+    private async void EditSettings(object sender, EventArgs e) 
+    {
+        await Navigation.PushAsync(new DisplayBookSettings());
+    }
 }

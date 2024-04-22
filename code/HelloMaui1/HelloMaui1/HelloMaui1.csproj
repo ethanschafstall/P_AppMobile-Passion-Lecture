@@ -75,8 +75,8 @@
 	  <Compile Update="LibrayTab\Collections.xaml.cs">
 	    <DependentUpon>Collections.xaml</DependentUpon>
 	  </Compile>
-	  <Compile Update="LibrayTab\YourBooks.xaml.cs">
-	    <DependentUpon>YourBooks.xaml</DependentUpon>
+	  <Compile Update="LibrayTab\BookSelf.xaml.cs">
+	    <DependentUpon>BookSelf.xaml</DependentUpon>
 	  </Compile>
 	  <Compile Update="AccountPage.xaml.cs">
 	    <DependentUpon>AccountPage.xaml</DependentUpon>
@@ -84,13 +84,16 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="DisplayBookSettings.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="LibrayTab\Tags.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="LibrayTab\Collections.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="LibrayTab\YourBooks.xaml">
+	  <MauiXaml Update="LibrayTab\BookSelf.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="AccountPage.xaml">

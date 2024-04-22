@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HelloMaui1.BookSelf">
+    <VerticalStackLayout>
+        <HorizontalStackLayout HorizontalOptions="Center" Margin="10">
+            <SearchBar
+            Placeholder="Search Book"
+            TextChanged="SearchBar_TextChanged"
+            SearchButtonPressed="SearchBar_SearchButtonPressed"
+            Style="{StaticResource Key=SearchBarStyle}"/>
+            <ImageButton Source="filters_icon.png"
+                         Clicked="EditSettings" 
+                         HorizontalOptions="Center"
+                         VerticalOptions="CenterAndExpand" 
+                         HeightRequest="40"
+                         WidthRequest="40"/>
+        </HorizontalStackLayout>
+    </VerticalStackLayout>
+</ContentPage>

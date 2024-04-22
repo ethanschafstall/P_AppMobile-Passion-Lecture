@@ -5,7 +5,8 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:HelloMaui1"
     Shell.FlyoutBehavior="Disabled"
-    Title="HelloMaui1">
+    Title="HelloMaui1"
+    Shell.ForegroundColor="Black">
     
     <TabBar>
         <Tab
@@ -16,14 +17,13 @@
                 Route="MainPage"/>
         </Tab>
         <Tab
-            
         Title="Library"
         Icon="library_icon.png">
             
             <ShellContent
-                Title="Your Books"
-                ContentTemplate="{DataTemplate local:YourBooks}"
-                Route="Your Books" />
+                Title="Book Self"
+                ContentTemplate="{DataTemplate local:BookSelf}"
+                Route="Book Self" />
             <ShellContent
                 Title="Collections"
                 ContentTemplate="{DataTemplate local:Collections}"

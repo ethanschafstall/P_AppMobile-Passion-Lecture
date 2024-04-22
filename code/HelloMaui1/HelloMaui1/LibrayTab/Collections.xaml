@@ -4,12 +4,15 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="HelloMaui1.Collections">
     <VerticalStackLayout>
-    <SearchBar
-            Placeholder="Search Book"
-            TextChanged="SearchBar_TextChanged"
-            SearchButtonPressed="SearchBar_SearchButtonPressed"
-            Style="{StaticResource Key=SearchBarStyle}"/>
-        <HorizontalStackLayout>
-        </HorizontalStackLayout>
+        <FlexLayout Margin="30,20,20,30" JustifyContent="SpaceEvenly">
+            <Button Style="{StaticResource Key=collectionStyle}" Text=""/>
+            <Button Style="{StaticResource Key=collectionStyle}" Text=""/>
+        </FlexLayout>
+    <ImageButton Source="add.png"
+                 Margin="0,280,0,0"
+                 HorizontalOptions="Center"
+                 VerticalOptions="End" 
+                 HeightRequest="60"
+                 WidthRequest="60"/>
     </VerticalStackLayout>
 </ContentPage>

@@ -6,15 +6,36 @@
 
     <Style x:Key="SearchBarStyle"
         TargetType="SearchBar">
-        <Setter Property="BackgroundColor" Value="Bisque"></Setter>
+        <Setter Property="BackgroundColor" Value="White"></Setter>
         <Setter Property="HorizontalOptions" Value="Center" />
         <Setter Property="VerticalOptions" Value="Center" />
         <Setter Property="FontSize" Value="22" />
         <Setter Property="MinimumWidthRequest" Value="350"/>
         <Setter Property="MaximumWidthRequest" Value="350"/>
     </Style>
-
     
+    <Style x:Key="collectionStyle"
+        TargetType="Button">
+        <Setter Property="BackgroundColor" Value="LightGrey"></Setter>
+        <Setter Property="CornerRadius" Value="15"/>
+        <Setter Property="TextColor" Value="Black"/>
+        <Setter Property="TextTransform" Value="Uppercase"/>
+        <Setter Property="WidthRequest" Value="160"/>
+        <Setter Property="HeightRequest" Value="256"/>
+        <Setter Property="Margin" Value="0,0,10,0"/>
+    </Style>
+
+    <Style x:Key="tagStyle"
+        TargetType="Button">
+        <Setter Property="BackgroundColor" Value="LightGrey"></Setter>
+        <Setter Property="CornerRadius" Value="15"/>
+        <Setter Property="TextColor" Value="Black"/>
+        <Setter Property="TextTransform" Value="Uppercase"/>
+        <Setter Property="WidthRequest" Value="110"/>
+        <Setter Property="HeightRequest" Value="60"/>
+        <Setter Property="Margin" Value="5,0,5,10"/>
+    </Style>
+
     <Style TargetType="ActivityIndicator">
         <Setter Property="Color" Value="{AppThemeBinding Light={StaticResource Primary}, Dark={StaticResource White}}" />
     </Style>

@@ -1,5 +1,7 @@
 
 
+using Microsoft.Maui.Controls;
+
 namespace HelloMaui1;
 
 public partial class Tags : ContentPage
@@ -16,32 +18,53 @@ public partial class Tags : ContentPage
     /// </summary>
     private void PopulateTags() 
 	{ 
-		List<string> tags = new List<string>() { "Horror", "Romatic", "Fiction", "Sci-Fi"};
-        List<string> colors = new List<string>() { "Horror", "Romatic", "Fiction", "Sci-Fi" };
-		int randomValue;
-        Random random = new Random();
+		List<string> tags = new List<string>() { "Horror", "Romatic", "Fiction", "Sci-Fi", "Horror", "Romatic", "Fiction", "Sci-Fi" , 
+                                                 "Horror", "Romatic", "Fiction", "Sci-Fi" , "Horror", "Romatic", "Fiction", "Sci-Fi" };
 
-
-        //stack.Add(test);
         for (int i = 0; i < tags.Count(); i++)
         {
-            stack.Add(new Button
+            Button button = CreateTag(tags[i]);
+            button.Clicked += (sender, e) =>
             {
-                Text = tags[i],
-                Margin = 10,
-                HeightRequest = 100,
-                WidthRequest = 100,
-
-            });
-        //            < Setter Property = "BackgroundColor" Value = "LightGrey" ></ Setter >
-        //< Setter Property = "CornerRadius" Value = "15" />
-        //< Setter Property = "TextColor" Value = "Black" />
-        //< Setter Property = "TextTransform" Value = "Uppercase" />
-        //< Setter Property = "WidthRequest" Value = "110" />
-        //< Setter Property = "HeightRequest" Value = "60" />
-        //< Setter Property = "Margin" Value = "5,0,5,10" />
-
+                CreateTagsPage(button.Text);
+            };
+            stack.Add(button);
         }
 	}
+    private Button CreateTag(string text) {
+        
+        Random random = new Random();
+        return new Button
+        {
+            Text = text,
+            Margin = new Thickness() { Top = 5, Left = 0, Right = 5, Bottom = 5 },
+            HeightRequest = 60,
+            WidthRequest = 110,
+            TextTransform = TextTransform.Uppercase,
+            TextColor = Color.FromArgb("#000000"),
+            BackgroundColor = Color.FromArgb(GeneratePastelColor(random)),
+            CornerRadius = 15
+        };
+    }
+    private async void CreateTagsPage(string name) 
+    {
+        await Navigation.PushModalAsync(new TagPage(name));
+    }
+    private static string GeneratePastelColor(Random random)
+    {
+        // Generate pastel colors by randomly selecting low saturation and high brightness
+        byte[] rgb = new byte[3];
+        random.NextBytes(rgb);
 
+        // Adjust the brightness
+        int brightness = random.Next(128, 256); // Adjust this range for different brightness levels
+
+        // Mix the RGB values with white
+        byte mixValue = (byte)((255 + brightness) / 2);
+        byte r = (byte)((rgb[0] + mixValue) / 2);
+        byte g = (byte)((rgb[1] + mixValue) / 2);
+        byte b = (byte)((rgb[2] + mixValue) / 2);
+
+        return $"#{r:X2}{g:X2}{b:X2}";
+    }
 }

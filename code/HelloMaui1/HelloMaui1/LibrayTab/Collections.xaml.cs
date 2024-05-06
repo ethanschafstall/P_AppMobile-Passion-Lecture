@@ -14,7 +14,7 @@ public partial class Collections : ContentPage
     }
     private void SearchBar_SearchButtonPressed(object sender, EventArgs e)
     {
-        CallAPI.GetSunrise();
+
     }
 
 }

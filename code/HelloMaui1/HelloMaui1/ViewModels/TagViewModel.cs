@@ -15,7 +15,7 @@ namespace B.ViewModels
     public partial class TagViewModel : ObservableObject
     {
         [ObservableProperty]
-        private ObservableCollection<string> wishes = new() { };
+        private ObservableCollection<string> tags = new() { };
 
         TagViewModel()
         {

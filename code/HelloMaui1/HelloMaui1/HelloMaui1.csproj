@@ -95,6 +95,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="BookPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="DisplayBookSettings.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

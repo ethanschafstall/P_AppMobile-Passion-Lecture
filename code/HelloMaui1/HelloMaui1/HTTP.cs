@@ -16,6 +16,7 @@ namespace HttpClientConnection
     {
         public string message { get; set; }
         public ObservableCollection<Book> data { get; set; }
+        public ObservableCollection<Category> data2 { get; set; }
     }
     public class Book
     {
@@ -30,6 +31,12 @@ namespace HttpClientConnection
         public int fk_user { get; set; }
         public int fk_publisher { get; set; }
     }
+    public class Category
+    {
+        public int id_category { get; set; }
+        public string catName { get; set; }
+
+    }
     class HTTP
     {
         public static async Task<List<Book>> GetBooks()
@@ -37,8 +44,8 @@ namespace HttpClientConnection
             using (var http = new HttpClient())
             {
                 var endpoint = "http://10.0.2.2:3000/api/books/";
-                var result = await http.GetAsync(endpoint); // Use await instead of blocking with .Result
-                var json = await result.Content.ReadAsStringAsync(); // Use await instead of blocking with .Result
+                var result = await http.GetAsync(endpoint);
+                var json = await result.Content.ReadAsStringAsync();
                 Console.WriteLine(json);
                 APIReponse obj = JsonSerializer.Deserialize<APIReponse>(json);
                 //Debug.WriteLine(obj.data);
@@ -48,6 +55,24 @@ namespace HttpClientConnection
                     books.Add(item);
                 }
                 return books;
+            }
+        }
+        public static async Task<List<Category>> GetCategories()
+        {
+            using (var http = new HttpClient())
+            {
+                var endpoint = "http://10.0.2.2:3000/api/categories/";
+                var result = await http.GetAsync(endpoint);
+                var json = await result.Content.ReadAsStringAsync();
+                Console.WriteLine(json);
+                APIReponse obj = JsonSerializer.Deserialize<APIReponse>(json);
+                //Debug.WriteLine(obj.data);
+                List<Category> categories = new List<Category>();
+                foreach (var item in obj.data2)
+                {
+                    categories.Add(item);
+                }
+                return categories;
             }
         }
     }

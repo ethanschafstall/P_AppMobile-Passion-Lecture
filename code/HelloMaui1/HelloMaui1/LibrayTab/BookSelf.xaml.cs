@@ -17,19 +17,7 @@ public partial class BookSelf : ContentPage
 		InitializeComponent();
         GetDataAsync();
     }
-    //Margin="0, 20,0,0" JustifyContent="SpaceEvenly" Wrap="Wrap"  x:Name="stack"
-    private void GenerateFlexlayout()
-    {
-        flexLayout = new FlexLayout {
-            JustifyContent = Microsoft.Maui.Layouts.FlexJustify.SpaceEvenly,
-            Wrap = Microsoft.Maui.Layouts.FlexWrap.Wrap,
-            VerticalOptions = LayoutOptions.FillAndExpand,
-            Margin = new Thickness() { Top = 20, Left = 0, Right = 5, Bottom = 0,
-           
-            }
-        };
-        baseStack.Add(flexLayout);
-    }
+
     public async Task GetDataAsync()
     {
         try
@@ -55,20 +43,6 @@ public partial class BookSelf : ContentPage
     {
         await Navigation.PushAsync(new DisplayBookSettings());
     }
-    private void PopulateBooks()
-    {
-
-        for (int i = 0; i < _books.Count(); i++)
-        {
-            ImageButton button = CreateBook(_books[i]);
-            button.Clicked += (sender, e) =>
-            {
-                CreateBookPage((Book)button.BindingContext);
-            };
-            flexLayout.Add(button);
-        }
-        
-    }
     private ImageButton CreateBook(Book item)
     {
 
@@ -76,8 +50,6 @@ public partial class BookSelf : ContentPage
         {
             Source = item.booCoverImage,
             BindingContext = item,
-            //Text = item.booTitle,
-            //ImageSource = item.booCoverImage,
             Margin = new Thickness() { Top = 5, Left = 0, Right = 5, Bottom = 5 },
             HeightRequest = 150,
             WidthRequest = 120,

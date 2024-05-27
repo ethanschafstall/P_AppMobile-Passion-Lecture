@@ -1,16 +1,19 @@
 
 
+using HttpClientConnection;
 using Microsoft.Maui.Controls;
 
 namespace HelloMaui1;
 
 public partial class Tags : ContentPage
 {
-	private List<Button> buttons;
-	public Tags()
+	private List<Category> _categories;
+
+    public Tags()
 	{
 		InitializeComponent();
-		PopulateTags();
+        GetDataAsync();
+        PopulateTags();
     }
 
     /// <summary>
@@ -49,6 +52,20 @@ public partial class Tags : ContentPage
     private async void CreateTagsPage(string name) 
     {
         await Navigation.PushModalAsync(new TagPage(name));
+    }
+    public async Task GetDataAsync()
+    {
+        try
+        {
+            // Fetch books asynchronously and assign the result directly to _books
+            _categories = await HTTP.GetCategories();
+        }
+        catch (Exception ex)
+        {
+            // Handle exceptions appropriately (e.g., show an error message)
+            Console.WriteLine($"Error fetching books: {ex.Message}");
+        }
+
     }
     private static string GeneratePastelColor(Random random)
     {
